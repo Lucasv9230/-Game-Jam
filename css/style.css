@@ -1,0 +1,42 @@
+
+/* ------------- jeux de lumière pour l'ambulance -------------- */
+/* Gyrophare Rouge (Gauche) */
+.gyro-gauche {
+  animation: alerte-rouge 0.6s infinite step-end;
+}
+
+/* Gyrophare Bleu (Droite) */
+.gyro-droite {
+  animation: alerte-bleue 0.6s infinite step-end;
+  animation-delay: 0.3s; /* Pour alterner avec le rouge */
+}
+
+@keyframes alerte-rouge {
+  0%, 50% { 
+    fill: #ff0000; 
+    filter: drop-shadow(0 0 8px #ff0000); 
+  }
+  51%, 100% { 
+    fill: #440000; 
+    filter: none; 
+  }
+}
+
+@keyframes alerte-bleue {
+  0%, 50% { 
+    fill: #0084ff; 
+    filter: drop-shadow(0 0 8px #0084ff); 
+  }
+  51%, 100% { 
+    fill: #001a44; 
+    filter: none; 
+  }
+}
+
+/* Optionnel : centre l'ambulance pour tester */
+.ambulance-sprite {
+  width: 60px;
+  margin: 50px auto;
+}
+
+/* ------------------------------------------------------*/
