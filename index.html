@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="assets/video/video-fond.mp4" type="video/mp4">
+    </video>
+
     <div id="start-screen">
         <div id="logo-container">
             <img id="logo" src="assets/img/logo.png" alt="Logo du jeu">
@@ -21,15 +25,26 @@
         </div>
     </div>
 
+    <div id="start-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sélectionner la difficulté</h2>
+            <p>Choisissez votre niveau de difficulté :</p>
+            <div id="difficulty-buttons">
+                <button class="btn btn-difficulty" data-difficulty="easy">Facile</button>
+                <button class="btn btn-difficulty" data-difficulty="medium">Moyen</button>
+                <button class="btn btn-difficulty" data-difficulty="hard">Difficile</button>
+            </div>
+        </div>
+    </div>
+
     <div id="rules-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Règles du jeu</h2>
             <p>Bienvenue dans le jeu ! Voici les règles :</p>
             <ul>
-                <li>Règle 1</li>
-                <li>Règle 2</li>
-                <li>Règle 3</li>
+                <li>Règle : </li>
             </ul>
         </div>
     </div>
