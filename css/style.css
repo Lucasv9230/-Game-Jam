@@ -1,3 +1,10 @@
+body {
+  background-color: green;
+  background-image: url("../assets/img/Creer_une_image_en_v.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto; /* taille originale */
+}
 
 /* ------------- jeux de lumière pour l'ambulance -------------- */
 /* Gyrophare Rouge (Gauche) */
