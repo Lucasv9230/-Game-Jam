@@ -1,28 +1,45 @@
-<html>
-    <head>
-        <title>My Game</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opération sauver la bourse d'or</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body>
+    <div id="start-screen">
+        <div id="logo-container">
+            <img id="logo" src="assets/img/logo.png" alt="Logo du jeu">
+        </div>
+        
+        <div id="buttons-container">
+            <button id="start-btn" class="btn btn-play">Jouer</button>
+            <button id="rules-btn" class="btn btn-rules">Règles du jeu</button>
+        </div>
+    </div>
 
-    <!-- Le code SVG de l'ambulance -->
- <div class="ambulance-sprite">
-  <svg width="60" height="100" viewBox="0 0 60 100" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="15" width="6" height="15" rx="1" fill="#222" />
-    <rect x="54" y="15" width="6" height="15" rx="1" fill="#222" />
-    <rect x="0" y="70" width="6" height="15" rx="1" fill="#222" />
-    <rect x="54" y="70" width="6" height="15" rx="1" fill="#222" />
+    <div id="rules-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Règles du jeu</h2>
+            <p>Bienvenue dans le jeu ! Voici les règles :</p>
+            <ul>
+                <li>Règle 1</li>
+                <li>Règle 2</li>
+                <li>Règle 3</li>
+            </ul>
+        </div>
+    </div>
 
-    <rect x="5" y="2" width="50" height="96" rx="5" fill="#ffffff" stroke="#333" stroke-width="2"/>
-    
-    <rect x="10" y="18" width="40" height="10" rx="2" fill="#bfe9ff" stroke="#333" stroke-width="1"/>
-    
-    <rect x="27" y="55" width="6" height="20" fill="#e53935"/>
-    <rect x="20" y="62" width="20" height="6" fill="#e53935"/>
-    
-    <rect class="gyro-gauche" x="10" y="5" width="15" height="7" rx="1" stroke="#333" stroke-width="1"/>
-    <rect class="gyro-droite" x="35" y="5" width="15" height="7" rx="1" stroke="#333" stroke-width="1"/>
-  </svg>
-</div>
+    <main id="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+    </main>
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
