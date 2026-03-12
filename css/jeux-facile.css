@@ -5,13 +5,7 @@ body {
   background-position: center;
   background-size: auto; /* taille originale */
 }
-
-/* ------------- jeux de lumière pour l'ambulance -------------- */
-/* Gyrophare Rouge (Gauche) */
-.gyro-gauche {
-  animation: alerte-rouge 0.6s infinite step-end;
-}
-
+/* -------------------------------------------------------------- */
 /* Écran d'accueil */
 #start-screen {
     display: flex;
@@ -194,11 +188,34 @@ body {
     color: #4ecdc4;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* Gyrophare Rouge (Gauche) */
+.gyro-gauche {
+  fill: black;               /* bloc noir toujours visible */
+  stroke: #000;
+  stroke-width: 1;
+  animation: gyro-gauche 1s infinite step-end;
+}
+
+/* Gyrophare Bleu (Droite) */
+.gyro-droite {
+  fill: black;               /* bloc noir toujours visible */
+  stroke: #000;
+  stroke-width: 1;
+  animation: gyro-droite 1s infinite step-end;
+}
+
+/* Animation du gyrophare gauche */
+@keyframes gyro-gauche {
+  0%   { fill: red; }        /* allumé */
+  25%  { fill: black; }      /* éteint */
+  100% { fill: black; }      /* reste éteint pendant que l'autre s'allume */
+}
+
+/* Animation du gyrophare droit */
+@keyframes gyro-droite {
+  0%   { fill: black; }      /* éteint */
+  25%  { fill: black; }      /* encore éteint */
+  50%  { fill: blue; }       /* allumé */
+  75%  { fill: black; }      /* éteint */
+  100% { fill: black; }
 }
