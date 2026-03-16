@@ -210,8 +210,13 @@ body {
 }
 
 body {
-    margin: 0;
-    overflow: hidden;
+  background-color: green;
+  background-image: url("../assets/img/Creer_une_image_en_v.png");
+  background-repeat: repeat-y; /* Répète l'image verticalement */
+  background-position: top center;
+  background-size: 100% auto;
+  margin: 0;
+  overflow: hidden;
 }
     
 #ambulance {
