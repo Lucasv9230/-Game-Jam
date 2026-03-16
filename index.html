@@ -27,7 +27,6 @@
 
     <div id="start-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
             <h2>Sélectionner la difficulté</h2>
             <p>Choisissez votre niveau de difficulté :</p>
             <div id="difficulty-buttons">
@@ -39,25 +38,26 @@
     </div>
 
     <div id="rules-modal" class="modal">
-        <div class="modal-content">
-            <span class="close"></span>
-            <h2>Règles du jeu</h2>
-            <p>Bienvenue dans le jeu ! Voici les règles :</p>
-            <ul>
-                <ul>
-                    <li>Atteindre l’hôpital en moins de 5 minutes pour sauver le patient.</li>
-                    <li>Éviter les obstacles sur la route pour ne pas réduire les points de vie du patient.</li>
-                    <li>Gérer la vitesse de l’ambulance : accélérer pour gagner du temps, ralentir pour éviter les collisions.</li>
-                    <li>Composer avec les embouteillages en trouvant le meilleur chemin possible en evitant les obstacles.</li>
-                    <li>Choisir un mode de difficulté : Easy, Medium ou Hard.</li>
-                    <li>Découvrir un passage secret dans chaque mode, menant à une question bonus ou malus.</li>
-                    <li>Répondre correctement à la question pour obtenir un bonus (temps ou vie).</li>
-                    <li>Une mauvaise réponse entraîne un malus (perte de vie, obstacle supplémentaire).</li>
-                    <li>Si la barre de vie du patient tombe à zéro, c’est Game Over.</li>
-                </ul>
-            </ul>
-        </div>
+    <div class="modal-content">
+
+        <h2>Règles du jeu</h2>
+        <p>Bienvenue dans le jeu ! Voici les règles :</p>
+
+        <ul class="rules-list">
+            <li>Atteindre l’hôpital en moins de 5 minutes pour sauver le patient.</li>
+            <li>Éviter les obstacles sur la route pour ne pas réduire les points de vie du patient.</li>
+            <li>Gérer la vitesse de l’ambulance : accélérer pour gagner du temps, ralentir pour éviter les collisions.</li>
+            <li>Composer avec les embouteillages en trouvant le meilleur chemin possible.</li>
+            <li>Choisir un mode de difficulté : Easy, Medium ou Hard.</li>
+            <li>Découvrir un passage secret dans chaque mode, menant à une question bonus ou malus.</li>
+            <li>Répondre correctement à la question pour obtenir un bonus (temps ou vie).</li>
+            <li>Une mauvaise réponse entraîne un malus (perte de vie, obstacle supplémentaire).</li>
+            <li>Si la barre de vie du patient tombe à zéro, c’est Game Over.</li>
+        </ul>
+
+        <button id="rules-back-btn" class="btn btn-back">Retour</button>
     </div>
+</div>
 
 <script src="js/script.js"></script>
 
