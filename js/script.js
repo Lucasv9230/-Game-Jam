@@ -1,4 +1,6 @@
-
+// ==========================================
+// PARTIE 1 : MENU D'ACCUEIL (index.html)
+// ==========================================
 const startBtn = document.getElementById("start-btn");
 const rulesBtn = document.getElementById("rules-btn");
 const rulesModal = document.getElementById("rules-modal");
@@ -50,7 +52,9 @@ if (startBtn) {
     }
 }
 
-
+// ==========================================
+// PARTIE 2 : JEU (jeux-facile.html, etc.)
+// ==========================================
 const ambulance = document.getElementById('ambulance');
 
 if (ambulance) {
@@ -61,7 +65,8 @@ if (ambulance) {
     let posX = (window.innerWidth / 2) - (ambWidth / 2);
     let posY = window.innerHeight - ambHeight - 20;
 
-    const speed = 7; 
+    const speed = 7; // Vitesse de l'ambulance
+    const marginX = 355;
 
     const keys = { ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false };
 
@@ -85,8 +90,6 @@ if (ambulance) {
         if (keys.ArrowDown) posY += speed;
         if (keys.ArrowLeft) posX -= speed;
         if (keys.ArrowRight) posX += speed;
-
-        let marginX = window.innerWidth * 0.28;
 
         if (posX < marginX) {
             posX = marginX;
