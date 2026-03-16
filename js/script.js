@@ -1,6 +1,3 @@
-// ==========================================
-// PARTIE 1 : MENU D'ACCUEIL (index.html)
-// ==========================================
 const startBtn = document.getElementById("start-btn");
 const rulesBtn = document.getElementById("rules-btn");
 const rulesModal = document.getElementById("rules-modal");
@@ -52,9 +49,6 @@ if (startBtn) {
     }
 }
 
-// ==========================================
-// PARTIE 2 : JEU (jeux-facile.html, etc.)
-// ==========================================
 const ambulance = document.getElementById('ambulance');
 
 if (ambulance) {
@@ -65,8 +59,9 @@ if (ambulance) {
     let posX = (window.innerWidth / 2) - (ambWidth / 2);
     let posY = window.innerHeight - ambHeight - 20;
 
-    const speed = 7; // Vitesse de l'ambulance
-    const marginX = 355;
+    const speed = 7; 
+    const bgImageWidth = 670; 
+    const marginFromImage = 50; 
 
     const keys = { ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false };
 
@@ -91,12 +86,14 @@ if (ambulance) {
         if (keys.ArrowLeft) posX -= speed;
         if (keys.ArrowRight) posX += speed;
 
-        if (posX < marginX) {
-            posX = marginX;
-        }
-        if (posX > window.innerWidth - marginX - ambWidth) {
-            posX = window.innerWidth - marginX - ambWidth;
-        }
+        let imageLeftEdge = (window.innerWidth / 2) - (bgImageWidth / 2);
+        let imageRightEdge = (window.innerWidth / 2) + (bgImageWidth / 2);
+
+        let limitLeft = imageLeftEdge + marginFromImage;
+        let limitRight = imageRightEdge - marginFromImage - ambWidth;
+
+        if (posX < limitLeft) posX = limitLeft;
+        if (posX > limitRight) posX = limitRight;
         
         if (posY < 0) posY = 0;
         if (posY > window.innerHeight - ambHeight) posY = window.innerHeight - ambHeight;
