@@ -265,13 +265,8 @@ canvas {
 .btn-difficulty[data-difficulty="hard"]:hover {
     box-shadow: 0 6px 20px rgba(250, 112, 154, 0.5);
 }
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-}
+
+
 
 .close:hover,
 .close:focus {
@@ -286,3 +281,5 @@ canvas {
         opacity: 1;
     }
 }
+
+

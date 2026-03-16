@@ -3,10 +3,8 @@ body {
   background-image: url("../assets/img/Creer_une_image_en_v.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto; /* taille originale */
+  background-size: auto;
 }
-/* -------------------------------------------------------------- */
-/* Écran d'accueil */
 #start-screen {
     display: flex;
     flex-direction: column;
@@ -16,7 +14,6 @@ body {
     padding: 20px;
 }
 
-/* Conteneur du logo */
 #logo-container {
     margin-bottom: 50px;
     animation: slideDown 1s ease-out;
@@ -32,7 +29,6 @@ body {
     animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Conteneur des boutons */
 #buttons-container {
     display: flex;
     flex-direction: column;
@@ -42,7 +38,6 @@ body {
     z-index: 10;
 }
 
-/* Boutons */
 .btn {
     padding: 15px 50px;
     font-size: 18px;
@@ -84,7 +79,6 @@ body {
     transform: translateY(-1px);
 }
 
-/* Animations */
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -118,7 +112,6 @@ body {
     }
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -188,34 +181,39 @@ body {
     color: #4ecdc4;
 }
 
-/* Gyrophare Rouge (Gauche) */
 .gyro-gauche {
-  fill: black;               /* bloc noir toujours visible */
+  fill: black;       
   stroke: #000;
   stroke-width: 1;
   animation: gyro-gauche 1s infinite step-end;
 }
 
-/* Gyrophare Bleu (Droite) */
 .gyro-droite {
-  fill: black;               /* bloc noir toujours visible */
+  fill: black;            
   stroke: #000;
   stroke-width: 1;
   animation: gyro-droite 1s infinite step-end;
 }
 
-/* Animation du gyrophare gauche */
 @keyframes gyro-gauche {
-  0%   { fill: red; }        /* allumé */
-  25%  { fill: black; }      /* éteint */
-  100% { fill: black; }      /* reste éteint pendant que l'autre s'allume */
+  0%   { fill: red; }  
+  25%  { fill: black; }   
+  100% { fill: black; }    
 }
 
-/* Animation du gyrophare droit */
 @keyframes gyro-droite {
-  0%   { fill: black; }      /* éteint */
-  25%  { fill: black; }      /* encore éteint */
-  50%  { fill: blue; }       /* allumé */
-  75%  { fill: black; }      /* éteint */
+  0%   { fill: black; }    
+  25%  { fill: black; }   
+  50%  { fill: blue; }      
+  75%  { fill: black; }     
   100% { fill: black; }
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+    
+#ambulance {
+    position: absolute;
 }
