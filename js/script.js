@@ -4,7 +4,6 @@ const rulesModal = document.getElementById("rules-modal");
 const startModal = document.getElementById("start-modal");
 const closeButtons = document.querySelectorAll(".close");
 const difficultyButtons = document.querySelectorAll(".btn-difficulty");
-
 let selectedDifficulty = null;
 
 if (startBtn) {
@@ -55,14 +54,12 @@ if (ambulance) {
     const ambRect = ambulance.getBoundingClientRect();
     let ambWidth = ambRect.width || 80;  
     let ambHeight = ambRect.height || 120; 
-
     let posX = (window.innerWidth / 2) - (ambWidth / 2);
     let posY = window.innerHeight - ambHeight - 20;
-
     const speed = 7; 
-    const bgImageWidth = 670; 
-    const marginFromImage = 50; 
-
+    const bgSpeed = 3;
+    const marginFromImage = 420; 
+    let bgPosY = 0;
     const keys = { ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false };
 
     window.addEventListener('keydown', (e) => {
@@ -86,11 +83,8 @@ if (ambulance) {
         if (keys.ArrowLeft) posX -= speed;
         if (keys.ArrowRight) posX += speed;
 
-        let imageLeftEdge = (window.innerWidth / 2) - (bgImageWidth / 2);
-        let imageRightEdge = (window.innerWidth / 2) + (bgImageWidth / 2);
-
-        let limitLeft = imageLeftEdge + marginFromImage;
-        let limitRight = imageRightEdge - marginFromImage - ambWidth;
+        let limitLeft = marginFromImage;
+        let limitRight = window.innerWidth - marginFromImage - ambWidth;
 
         if (posX < limitLeft) posX = limitLeft;
         if (posX > limitRight) posX = limitRight;
@@ -100,6 +94,9 @@ if (ambulance) {
 
         ambulance.style.left = posX + 'px';
         ambulance.style.top = posY + 'px';
+
+        bgPosY += bgSpeed;
+        document.body.style.backgroundPosition = `center ${bgPosY}px`;
 
         requestAnimationFrame(gameLoop);
     }
