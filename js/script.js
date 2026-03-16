@@ -136,3 +136,30 @@ if (ambulance) {
 
     gameLoop();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const rulesModal = document.getElementById("rules-modal");
+    const rulesBackBtn = document.getElementById("rules-back-btn");
+    const rulesBtn = document.getElementById("rules-btn");
+
+    // Ouvrir le modal des règles
+    if (rulesBtn && rulesModal) {
+        rulesBtn.addEventListener("click", () => {
+            rulesModal.style.display = "block";
+        });
+    }
+
+    // Bouton "Retour" dans le règlement
+    if (rulesBackBtn && rulesModal) {
+        rulesBackBtn.addEventListener("click", () => {
+            rulesModal.style.display = "none";
+        });
+    }
+
+    // Fermer en cliquant en dehors du contenu
+    window.addEventListener("click", (e) => {
+        if (e.target === rulesModal) {
+            rulesModal.style.display = "none";
+        }
+    });
+});
