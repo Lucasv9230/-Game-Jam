@@ -282,4 +282,28 @@ canvas {
     }
 }
 
+.btn-back {
+    margin-top: 25px;
+    padding: 12px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #ff9a3c 0%, #ff6a00 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 154, 60, 0.3);
+}
+
+.btn-back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 154, 60, 0.5);
+}
+
+.btn-back:active {
+    transform: translateY(0);
+}  
 
