@@ -173,3 +173,13 @@ body {
     background-color: #333;
     opacity: 0.2;
 }
+
+#timer {
+    font-family: 'Iceland', sans-serif;
+    top: px;
+    position: fixed;
+    right: 20px;
+    font-size: 25px;
+    color: white;
+    z-index: 2000;
+}
