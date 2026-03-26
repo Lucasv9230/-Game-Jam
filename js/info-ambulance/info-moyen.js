@@ -3,7 +3,7 @@ let currentLives = maxLives;
 
 function initHearts() {
     const container = document.getElementById("hearts-container");
-    container.innerHTML = ""; 
+    container.innerHTML = "";
 
     for (let i = 0; i < maxLives; i++) {
         const heart = document.createElement("div");
@@ -39,8 +39,6 @@ function takeDamage() {
     }
 }
 
-
-
 const ambulance = document.getElementById('ambulance');
 
 if (ambulance) {
@@ -68,7 +66,6 @@ if (ambulance) {
             e.preventDefault();
         }
 
-        // TEST : Appuie sur "D" pour tester la perte de vie manuellement
         if (e.key === "d") takeDamage();
     });
 
@@ -77,6 +74,35 @@ if (ambulance) {
             keys[e.key] = false;
         }
     });
+
+    const voies = [38, 46, 54, 62];
+    const obstaclesActifs = [];
+    const typesObstacles = ['plot', 'grand-mÃ¨re', 'dos-d-ane', 'flaque', 'passage'];
+
+    function creerObstacle() {
+        const typeAleatoire = typesObstacles[Math.floor(Math.random() * typesObstacles.length)];
+        const imgSource = document.getElementById(typeAleatoire);
+        
+        if(!imgSource) return;
+
+        const obsElement = document.createElement('img');
+        obsElement.src = imgSource.src;
+        obsElement.classList.add('obstacle-actif');
+        
+        const voieAleatoire = voies[Math.floor(Math.random() * voies.length)];
+        
+        const obstacle = {
+            element: obsElement,
+            relativeX: voieAleatoire,
+            posY: -100, 
+            estTouche: false 
+        };
+
+        document.body.appendChild(obsElement);
+        obstaclesActifs.push(obstacle);
+    }
+
+    setInterval(creerObstacle, 1500);
 
     function gameLoop() {
 
@@ -98,6 +124,38 @@ if (ambulance) {
 
         bgPosY += bgSpeed;
         document.body.style.backgroundPosition = `center ${bgPosY}px`;
+
+        for (let i = obstaclesActifs.length - 1; i >= 0; i--) {
+            let obs = obstaclesActifs[i];
+            
+            obs.posY += bgSpeed; 
+
+            const screenX = (window.innerWidth * obs.relativeX) / 100;
+            
+            obs.element.style.left = `${screenX}px`;
+            obs.element.style.top = `${obs.posY}px`;
+
+            const ambRect = ambulance.getBoundingClientRect();
+            const obsRect = obs.element.getBoundingClientRect();
+
+            const marge = 10; 
+
+            if (!obs.estTouche && 
+                ambRect.left + marge < obsRect.right &&
+                ambRect.right - marge > obsRect.left &&
+                ambRect.top + marge < obsRect.bottom &&
+                ambRect.bottom - marge > obsRect.top) {
+                
+                obs.estTouche = true; 
+                obs.element.style.opacity = "0.5"; 
+                takeDamage();
+            }
+
+            if (obs.posY > window.innerHeight) {
+                obs.element.remove();
+                obstaclesActifs.splice(i, 1);
+            }
+        }
 
         requestAnimationFrame(gameLoop);
     }

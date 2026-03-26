@@ -135,8 +135,7 @@ if (ambulance) {
         bgPosY += bgSpeed;
         document.body.style.backgroundPosition = `center ${bgPosY}px`;
 
-        requestAnimationFrame(gameLoop);
-        for (let i = obstaclesActifs.length - 1; i >= 0; i--) {
+                for (let i = obstaclesActifs.length - 1; i >= 0; i--) {
             let obs = obstaclesActifs[i];
             
             obs.posY += bgSpeed; 
@@ -167,6 +166,9 @@ if (ambulance) {
                 obstaclesActifs.splice(i, 1);
             }
         }
+        
+        requestAnimationFrame(gameLoop);
+
     }
 
     gameLoop();
