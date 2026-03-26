@@ -148,7 +148,7 @@ if (ambulance) {
             const ambRect = ambulance.getBoundingClientRect();
             const obsRect = obs.element.getBoundingClientRect();
 
-            const marge = 10; 
+            const marge = 100; 
 
             if (!obs.estTouche && 
                 ambRect.left + marge < obsRect.right &&
