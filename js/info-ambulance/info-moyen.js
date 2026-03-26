@@ -51,7 +51,7 @@ if (ambulance) {
     let posY = window.innerHeight - ambHeight - 20;
 
     const speed = 7;
-    const bgSpeed = 5;
+    const bgSpeed = 10;
     const marginFromImage = 420;
 
     let bgPosY = 0;
