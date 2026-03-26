@@ -121,8 +121,8 @@ if (ambulance) {
         if (keys.ArrowLeft) posX -= speed;
         if (keys.ArrowRight) posX += speed;
 
-        let limitLeft = marginFromImage;
-        let limitRight = window.innerWidth - marginFromImage - ambWidth;
+        let limitLeft = (window.innerWidth * 32) / 100;
+        let limitRight = (window.innerWidth * 68) / 100 - ambWidth;
 
         if (posX < limitLeft) posX = limitLeft;
         if (posX > limitRight) posX = limitRight;
