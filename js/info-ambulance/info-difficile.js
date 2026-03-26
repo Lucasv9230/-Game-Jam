@@ -31,20 +31,16 @@ function takeDamage() {
     if (currentLives <= 0) {
         const img = document.getElementById("gameOverImage");
 
-        // Affiche l'image Game Over
         img.style.display = "block";
         img.style.position = "absolute";
         img.style.top = "50%";
         img.style.left = "50%";
         img.style.transform = "translate(-50%, -50%)";
 
-        // Après 5 secondes : cacher l'image puis rediriger
         setTimeout(() => {
             img.style.display = "none";
 
-            // Redirection vers la page d'accueil
             window.location.href = "../index.html"; 
-            // Mets ici le bon chemin vers ta page d'accueil
         }, 5000);
     }
 }
@@ -56,7 +52,6 @@ const ambulance = document.getElementById('ambulance');
 
 if (ambulance) {
 
-    // Initialisation des cœurs au chargement du niveau
     initHearts();
 
     const ambRect = ambulance.getBoundingClientRect();
@@ -90,15 +85,42 @@ if (ambulance) {
         }
     });
 
-    function gameLoop() {
+    const obstaclesActifs = [];
+    const typesObstacles = ['plot', 'grand-mère', 'dos-d-ane', 'flaque', 'passage'];
 
-        // Déplacements
+    const voies = [38, 46, 54, 62];
+
+    function creerObstacle() {
+        const typeAleatoire = typesObstacles[Math.floor(Math.random() * typesObstacles.length)];
+        const imgSource = document.getElementById(typeAleatoire);
+        
+        if(!imgSource) return;
+
+        const obsElement = document.createElement('img');
+        obsElement.src = imgSource.src;
+        obsElement.classList.add('obstacle-actif');
+        
+        const voieAleatoire = voies[Math.floor(Math.random() * voies.length)];
+        
+        const obstacle = {
+            element: obsElement,
+            relativeX: voieAleatoire,
+            posY: -100, 
+            estTouche: false 
+        };
+
+        document.body.appendChild(obsElement);
+        obstaclesActifs.push(obstacle);
+    }
+
+    setInterval(creerObstacle, 2000);
+
+    function gameLoop() {
         if (keys.ArrowUp) posY -= speed;
         if (keys.ArrowDown) posY += speed;
         if (keys.ArrowLeft) posX -= speed;
         if (keys.ArrowRight) posX += speed;
 
-        // Limites de la route
         let limitLeft = marginFromImage;
         let limitRight = window.innerWidth - marginFromImage - ambWidth;
 
@@ -107,15 +129,44 @@ if (ambulance) {
         if (posY < 0) posY = 0;
         if (posY > window.innerHeight - ambHeight) posY = window.innerHeight - ambHeight;
 
-        // Appliquer la position
         ambulance.style.left = posX + 'px';
         ambulance.style.top = posY + 'px';
 
-        // Défilement du fond
         bgPosY += bgSpeed;
         document.body.style.backgroundPosition = `center ${bgPosY}px`;
 
         requestAnimationFrame(gameLoop);
+        for (let i = obstaclesActifs.length - 1; i >= 0; i--) {
+            let obs = obstaclesActifs[i];
+            
+            obs.posY += bgSpeed; 
+
+            const screenX = (window.innerWidth * obs.relativeX) / 100;
+            
+            obs.element.style.left = `${screenX}px`;
+            obs.element.style.top = `${obs.posY}px`;
+
+            const ambRect = ambulance.getBoundingClientRect();
+            const obsRect = obs.element.getBoundingClientRect();
+
+            const marge = 10; 
+
+            if (!obs.estTouche && 
+                ambRect.left + marge < obsRect.right &&
+                ambRect.right - marge > obsRect.left &&
+                ambRect.top + marge < obsRect.bottom &&
+                ambRect.bottom - marge > obsRect.top) {
+                
+                obs.estTouche = true; 
+                obs.element.style.opacity = "0.5"; 
+                takeDamage();
+            }
+
+            if (obs.posY > window.innerHeight) {
+                obs.element.remove();
+                obstaclesActifs.splice(i, 1);
+            }
+        }
     }
 
     gameLoop();

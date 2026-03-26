@@ -1,17 +1,14 @@
-// --- CONFIGURATION DES VIES ---
 let maxLives = 5;          
 let currentLives = maxLives;
 
-// --- CRÉATION DES CŒURS AU DÉBUT ---
 function initHearts() {
     const container = document.getElementById("hearts-container");
-    container.innerHTML = ""; // reset
+    container.innerHTML = ""; 
 
     for (let i = 0; i < maxLives; i++) {
         const heart = document.createElement("div");
         heart.classList.add("heart");
 
-        // Si la vie est perdue → cœur grisé
         if (i >= currentLives) {
             heart.classList.add("lost");
         }
@@ -20,8 +17,6 @@ function initHearts() {
     }
 }
 
-// --- PERTE DE VIE ---
-// --- PERTE DE VIE ---
 function takeDamage() {
     if (currentLives > 0) {
         currentLives--;
@@ -31,32 +26,25 @@ function takeDamage() {
     if (currentLives <= 0) {
         const img = document.getElementById("gameOverImage");
 
-        // Affiche l'image Game Over
         img.style.display = "block";
         img.style.position = "absolute";
         img.style.top = "50%";
         img.style.left = "50%";
         img.style.transform = "translate(-50%, -50%)";
 
-        // Après 5 secondes : cacher l'image puis rediriger
         setTimeout(() => {
             img.style.display = "none";
-
-            // Redirection vers la page d'accueil
             window.location.href = "../index.html"; 
-            // Mets ici le bon chemin vers ta page d'accueil
         }, 5000);
     }
 }
 
 
 
-// --- LOGIQUE DU JEU (AMBULANCE) ---
 const ambulance = document.getElementById('ambulance');
 
 if (ambulance) {
 
-    // Initialisation des cœurs au chargement du niveau
     initHearts();
 
     const ambRect = ambulance.getBoundingClientRect();
@@ -92,13 +80,11 @@ if (ambulance) {
 
     function gameLoop() {
 
-        // Déplacements
         if (keys.ArrowUp) posY -= speed;
         if (keys.ArrowDown) posY += speed;
         if (keys.ArrowLeft) posX -= speed;
         if (keys.ArrowRight) posX += speed;
 
-        // Limites de la route
         let limitLeft = marginFromImage;
         let limitRight = window.innerWidth - marginFromImage - ambWidth;
 
@@ -107,11 +93,9 @@ if (ambulance) {
         if (posY < 0) posY = 0;
         if (posY > window.innerHeight - ambHeight) posY = window.innerHeight - ambHeight;
 
-        // Appliquer la position
         ambulance.style.left = posX + 'px';
         ambulance.style.top = posY + 'px';
 
-        // Défilement du fond
         bgPosY += bgSpeed;
         document.body.style.backgroundPosition = `center ${bgPosY}px`;
 
