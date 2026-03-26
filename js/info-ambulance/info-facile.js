@@ -28,8 +28,23 @@ function takeDamage() {
     }
 
     if (currentLives <= 0) {
-        alert("Game Over !");
-        location.reload();
+        const img = document.getElementById("gameOverImage");
+
+        // Affiche l'image Game Over
+        img.style.display = "block";
+        img.style.position = "absolute";
+        img.style.top = "50%";
+        img.style.left = "50%";
+        img.style.transform = "translate(-50%, -50%)";
+
+        // Après 5 secondes : cacher l'image puis rediriger
+        setTimeout(() => {
+            img.style.display = "none";
+
+            // Redirection vers la page d'accueil
+            window.location.href = "../index.html"; 
+            // Mets ici le bon chemin vers ta page d'accueil
+        }, 5000);
     }
 }
 
