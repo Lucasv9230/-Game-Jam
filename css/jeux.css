@@ -186,8 +186,8 @@ body {
 .obstacle-actif {
     position: absolute;
     width: 9vw; /* On passe de 6vw à 9vw pour les rendre bien plus gros */
-    min-width: 150px; /* Taille minimum augmentée */
-    max-width: 400px; /* Taille maximum augmentée (avant c'était 80px) */
+    min-width: 300px; /* Taille minimum augmentée */
+    max-width: 550px; /* Taille maximum augmentée (avant c'était 80px) */
     z-index: 100; 
     transform: translateX(-50%); 
 }
