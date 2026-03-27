@@ -21,7 +21,6 @@ function initHearts() {
 }
 
 // --- PERTE DE VIE ---
-// --- PERTE DE VIE ---
 function takeDamage() {
     if (currentLives > 0) {
         currentLives--;
@@ -74,9 +73,6 @@ if (ambulance) {
             keys[e.key] = true;
             e.preventDefault();
         }
-
-        // TEST : Appuie sur "D" pour tester la perte de vie manuellement
-        if (e.key === "d") takeDamage();
     });
 
     window.addEventListener('keyup', (e) => {
