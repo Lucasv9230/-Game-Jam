@@ -65,7 +65,6 @@ if (ambulance) {
             keys[e.key] = true;
             e.preventDefault();
         }
-        if (e.key === "d") takeDamage();
     });
 
     window.addEventListener('keyup', (e) => {
