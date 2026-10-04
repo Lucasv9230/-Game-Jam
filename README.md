@@ -1,12 +1,12 @@
-# Opération : Sauver la Bourse d’Or
+# Opération : Urgence Vitale
 
 **Projet scolaire collaboratif**
 Ce projet a été réalisé en groupe dans le cadre de nos études en informatique à Ynov Campus.
 
 ## 1. Présentation générale
-Nous avons développé *Opération : Sauver la Bourse d’Or*, un jeu de survie arcade en HTML, CSS et JavaScript, dans le cadre de la "Dangerous Jam JS".
+Nous avons développé *Opération : Urgence Vitale*, un jeu de survie arcade en HTML, CSS et JavaScript, dans le cadre de la "Dangerous Jam JS".
 
-Le joueur incarne le conducteur d’une ambulance transportant un patient atteint d’une torsion testiculaire aiguë. Le temps est compté : il reste seulement quelques minutes avant d’atteindre la limite critique des six heures, au-delà de laquelle le testicule du patient risque de ne plus être sauvable. 
+Le joueur incarne le conducteur d’une ambulance transportant un patient dans un état critique. Le temps est compté : il reste seulement quelques minutes avant d’atteindre la limite fatidique, au-delà de laquelle le pronostic vital du patient est engagé. 
 
 L’objectif est d’atteindre l’hôpital avant la fin du timer tout en évitant les dangers de la route. Dans cet univers, rien n’est sûr et tout peut devenir une menace, conformément au thème de la jam : **"Nothing is Safe"**.
 
@@ -49,7 +49,7 @@ Chaque mode modifie le temps disponible pour atteindre l’hôpital :
 - **Hard** : 3 minutes
 
 ## 6. Passages secrets et quiz médical
-Nous avons inclus un passage secret pour chaque mode. En l’empruntant, le joueur doit répondre à une question aléatoire portant sur la torsion testiculaire. Ces questions proviennent d’une base de données interne. 
+Nous avons inclus un passage secret pour chaque mode. En l’empruntant, le joueur doit répondre à une question aléatoire portant sur les urgences médicales. Ces questions proviennent d’une base de données interne. 
 
 Selon la réponse :
 - **Bonus possibles** : ajout de temps, gain de vie, amélioration temporaire
