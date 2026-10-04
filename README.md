@@ -1,10 +1,10 @@
-# Opération : Urgence Vitale
+# Opération : Sauver la Bourse d'Or
 
 **Projet scolaire collaboratif**
 Ce projet a été réalisé en groupe dans le cadre de nos études en informatique à Ynov Campus.
 
 ## 1. Présentation générale
-Nous avons développé *Opération : Urgence Vitale*, un jeu de survie arcade en HTML, CSS et JavaScript, dans le cadre de la "Dangerous Jam JS".
+Nous avons développé *Opération : Sauver la Bourse d'Or*, un jeu de survie arcade en HTML, CSS et JavaScript, dans le cadre de la "Dangerous Jam JS".
 
 Le joueur incarne le conducteur d’une ambulance transportant un patient dans un état critique. Le temps est compté : il reste seulement quelques minutes avant d’atteindre la limite fatidique, au-delà de laquelle le pronostic vital du patient est engagé. 
 
