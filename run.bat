@@ -1,0 +1,3 @@
+@echo off
+echo Lancement du jeu...
+start index.html
