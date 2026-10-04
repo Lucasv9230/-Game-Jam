@@ -1,7 +1,7 @@
 body {
   background-color: green;
   background-image: url("../assets/img/Creer_une_image_en_v.png");
-  background-repeat: repeat-y; /* Gardé tel quel pour le défilement */
+  background-repeat: repeat-y; 
   background-position: top center;
   background-size: 100% auto;
   margin: 0;
@@ -146,7 +146,7 @@ body {
 
 #ambulance { position: absolute; }
 
-/* --- AJOUT DE L'INTERFACE (Barre de vie) --- */
+
 #game-ui {
     position: fixed;
     top: 20px;
@@ -182,12 +182,12 @@ body {
     z-index: 2000;
 }
 
-/* --- GESTION DES OBSTACLES RESPONSIVES --- */
+
 .obstacle-actif {
     position: absolute;
-    width: 9vw; /* On passe de 6vw à 9vw pour les rendre bien plus gros */
-    min-width: 300px; /* Taille minimum augmentée */
-    max-width: 550px; /* Taille maximum augmentée (avant c'était 80px) */
+    width: 9vw; 
+    min-width: 300px; 
+    max-width: 550px; 
     z-index: 100; 
     transform: translateX(-50%); 
 }

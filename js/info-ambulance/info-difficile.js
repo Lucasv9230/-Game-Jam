@@ -1,26 +1,19 @@
-// --- CONFIGURATION DES VIES ---
 let maxLives = 3;          
-let currentLives = maxLives;
-
-// --- CRÉATION DES CŒURS AU DÉBUT ---
+let currentLives = maxLives;
 function initHearts() {
     const container = document.getElementById("hearts-container");
     container.innerHTML = ""; // reset
 
     for (let i = 0; i < maxLives; i++) {
         const heart = document.createElement("div");
-        heart.classList.add("heart");
-
-        // Si la vie est perdue → cœur grisé
+        heart.classList.add("heart");
         if (i >= currentLives) {
             heart.classList.add("lost");
         }
 
         container.appendChild(heart);
     }
-}
-
-// --- PERTE DE VIE ---
+}
 function takeDamage() {
     if (currentLives > 0) {
         currentLives--;
@@ -42,11 +35,7 @@ function takeDamage() {
             window.location.href = "../index.html"; 
         }, 5000);
     }
-}
-
-
-
-// --- LOGIQUE DU JEU (AMBULANCE) ---
+}
 const ambulance = document.getElementById('ambulance');
 
 if (ambulance) {

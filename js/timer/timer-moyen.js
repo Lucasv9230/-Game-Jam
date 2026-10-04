@@ -2,26 +2,18 @@ let time = 120;
 const timerElement = document.getElementById("timer");
 
 const interval = setInterval(() => {
-    time--;
-
-    // Affiche le timer
-    timerElement.textContent = "Temps restant : " + time;
-
-    // Quand le timer arrive à 0 → VICTOIRE
+    time--;
+    timerElement.textContent = "Temps restant : " + time;
     if (time <= 0) {
         clearInterval(interval);
 
-        const img = document.getElementById("winImage");
-
-        // Affiche l'image de victoire au centre
+        const img = document.getElementById("winImage");
         img.style.display = "block";
         img.style.position = "absolute";
         img.style.top = "50%";
         img.style.left = "50%";
         img.style.transform = "translate(-50%, -50%)";
-        img.style.zIndex = "9999";
-
-        // Après 5 secondes → cacher l'image et retourner au menu
+        img.style.zIndex = "9999";
         setTimeout(() => {
             img.style.display = "none";
             window.location.href = "../index.html"; 
